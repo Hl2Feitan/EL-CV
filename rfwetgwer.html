@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Santiago Pibernus</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #c9c9c9;
+      padding: 2rem;
+    }
+
+    .cv-page {
+      font-family: 'DM Sans', sans-serif;
+      background: #e6fcff;
+      color: #1a1a1a;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem;
+      font-size: 14px;
+      line-height: 1.6;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 2rem;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid #185FA5;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-pic {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #185FA5;
+    }
+
+    .name {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #042C53;
+      line-height: 1.1;
+    }
+
+    .title-role {
+      font-size: 15px;
+      font-weight: 400;
+      color: #185FA5;
+      margin-top: 6px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .contact-block {
+      text-align: right;
+      color: #555;
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      justify-content: center;
+    }
+
+    .contact-block a {
+      color: #185FA5;
+      text-decoration: none;
+    }
+
+    .summary {
+      background: #ffffff;
+      border-left: 3px solid #185FA5;
+      padding: 1rem 1.25rem;
+      border-radius: 0 6px 6px 0;
+      color: #042C53;
+      font-size: 13.5px;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+
+    .body {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+
+    .section {
+      margin-bottom: 1.75rem;
+    }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #185FA5;
+      border-bottom: 1px solid #B5D4F4;
+      padding-bottom: 5px;
+      margin-bottom: 1rem;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .job {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 0.5px solid #e0e0e0;
+    }
+
+    .job:last-child { border-bottom: none; margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-weight: 500;
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+
+    .job-date {
+      font-size: 12px;
+      color: #777;
+      font-family: 'DM Mono', monospace;
+      white-space: nowrap;
+      margin-left: 1rem;
+      flex-shrink: 0;
+    }
+
+    .job-company {
+      font-size: 12.5px;
+      color: #185FA5;
+      margin-bottom: 6px;
+    }
+
+    .job-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .job-desc ul {
+      padding-left: 1rem;
+      margin-top: 4px;
+    }
+
+    .job-desc li {
+      margin-bottom: 3px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .skill-category {
+      font-size: 11px;
+      font-weight: 600;
+      color: #777;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      background: #E6F1FB;
+      color: #0C447C;
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .tag.dark {
+      background: #185FA5;
+      color: #E6F1FB;
+    }
+
+    .edu-item {
+      margin-bottom: 1rem;
+    }
+
+    .edu-degree {
+      font-weight: 500;
+      font-size: 13.5px;
+      color: #1a1a1a;
+    }
+
+    .edu-inst {
+      font-size: 12.5px;
+      color: #185FA5;
+    }
+
+    .edu-date {
+      font-size: 12px;
+      color: #777;
+      font-family: 'DM Mono', monospace;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .lang-bar {
+      display: flex;
+      gap: 3px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #B5D4F4;
+    }
+
+    .dot.filled {
+      background: #185FA5;
+    }
+
+    .cert-item {
+      font-size: 13px;
+      color: #555;
+      padding: 6px 0;
+      border-bottom: 0.5px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cert-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: #185FA5;
+      flex-shrink: 0;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .cv-page { box-shadow: none; border-radius: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .body { grid-template-columns: 1fr; }
+      .header { grid-template-columns: 1fr; }
+      .contact-block { text-align: left; }
+      .profile-pic { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-page">
+
+    <!-- ============ ENCABEZADO ============ -->
+    <div class="header">
+
+      <!-- columna 1: nombre y cargo -->
+      <div>
+        <div class="name">Santiago Pibernus</div>
+        <div class="title-role">Estudiante de Programación</div>
+      </div>
+
+      <!-- columna 2: foto (poné tu imagen en la misma carpeta y cambiá el nombre) -->
+      <img src="foto.jpg" alt="Foto de perfil" class="profile-pic">
+
+      <!-- columna 3: contacto -->
+      <div class="contact-block">
+        <span>Resistencia, Chaco, Argentina</span>
+        <a href="mailto:santiagopibernus@gmail.com">santiagopibernus@gmail.com</a>
+        <span>+54 3624787599</span>
+        <a href="https://github.com/Hl2Feitan">github.com/Hl2Feitan</a>
+      </div>
+
+    </div>
+    <!-- ============ FIN ENCABEZADO ============ -->
+
+    <!-- RESUMEN -->
+    <div class="summary">
+      Programador junior con formación en la Tecnicatura Universitaria en Programación (UTN). Conocimientos en desarrollo frontend y backend, bases de datos y herramientas de nube. 
+
+    <!-- CUERPO: dos columnas -->
+    <div class="body">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="left-col">
+
+        <div class="section">
+          <div class="section-title">Experiencia profesional</div>
+          <div class="job">
+            <div class="job-header">
+              <div class="job-title">Estudiante TUP</div>
+              <div class="job-date">2025 — Presente</div>
+            </div>
+            <div class="job-company">UTN — Facultad Regional Resistencia</div>
+            <div class="job-desc">
+              <ul>
+                <li>Cursando la Tecnicatura Universitaria en Programación.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Educación</div>
+          <div class="edu-item">
+            <div class="edu-degree">Tecnicatura Universitaria en Programación</div>
+            <div class="edu-inst">UTN — Facultad Regional Resistencia</div>
+            <div class="edu-date">2024 — 202X</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA -->
+      <div class="right-col">
+
+        <div class="section">
+          <div class="section-title">Tecnologías</div>
+          <div class="skills-grid">
+            <div>
+              <div class="skill-category">Frontend</div>
+              <div class="skill-tags">
+                <span class="tag dark">React</span>
+              </div>
+            </div>
+            <div>
+              <div class="skill-category">Backend</div>
+              <div class="skill-tags">
+                <span class="tag dark">Java</span>
+                <span class="tag dark">C</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Python</span>
+                <span class="tag light">C#</span>
+              </div>
+            </div>
+            <div>
+              <div class="skill-category">Cloud & DevOps</div>
+              <div class="skill-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Docker</span>
+              </div>
+            </div>
+            <div>
+              <div class="skill-category">Bases de datos</div>
+              <div class="skill-tags">
+                <span class="tag dark">PHPMyAdmin</span>
+                <span class="tag">SQL</span>
+                <span class="tag">MongoDB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Idiomas</div>
+          <div class="lang-item">
+            <span>Español</span>
+            <div class="lang-bar">
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <span>Inglés</span>
+            <div class="lang-bar">
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+              <div class="dot filled"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Certificaciones</div>
+          <div class="cert-item">
+            <span>Informatorio Chaco</span>
+            <span class="cert-year">2025</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Sobre mi</div>
+          <p style="font-size: 13px; color: #555; line-height: 1.7;">
+            Contribuidor activo en GitHub. Speaker en meetups locales de desarrollo web. Amante la lectura técnica.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
